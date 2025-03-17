@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+
+.header-box {
+  background-color: #6192E1;
+   background-image: linear-gradient(to bottom left, #AF35D8, #6192E1);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.header-box h1 {
+  font-size: 22px;
+  display: inline-block;
+}
+
+.header-box button {
+  float: right;
+  background-color: white;
+  color: #4A90E2;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: -5px 0px;
+  transition: 0.3s;
+}
+
+.header-box button:hover {
+  background-color: #ddd;
+}
+
+
+.search-box {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.search-box input {
+  width: 60%;
+  padding: 10px;
+  border: 2px solid #4A90E2;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+}
+
+
+.table-box {
+  width: 90%;
+  margin: auto;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #6192E1;
+   background-image: linear-gradient(to bottom left, #AF35D8, #6192E1);
+  color: white;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+tr:hover {
+  background: #e6f2ff;
+  transition: 0.3s;
+}
+
+
+.button-box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button-box .msg p {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button-box .btn {
+  margin-top: 10px;
+}
+
+.button-box button {
+  background-color: #6192E1;
+  background-image: linear-gradient(to bottom left, #AF35D8, #6192E1);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.button-box button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button-box button:hover:not(:disabled) {
+  background-color: #6192E1;
+ background-image: linear-gradient(to bottom left, #AF35D8, #6192E1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-box h1 {
+    font-size: 18px;
+  }
+  
+  .search-box input {
+    width: 80%;
+  }
+
+  th, td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

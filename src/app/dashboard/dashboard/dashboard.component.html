@@ -1,0 +1,60 @@
+<div>
+  <div *ngIf="authService.isLoggedIn()" class="header-box">
+    <header>
+      <h1>Welcome, {{ username | uppercase}}</h1> <button (click)="authService.logout()">Logout</button>
+    </header>
+  </div>
+
+
+  <div>
+    <div class="search-box">
+      <input [(ngModel)]="searchQuery" placeholder="Search users..." />
+    </div>
+    <div class="table-box">
+      <table>
+        <tr>
+          <th>
+           NAME
+          </th>
+          <th>
+          EMAIL
+          </th>
+          <th>
+         CONTACT
+          </th>
+          <th>
+          WEBSITE
+          </th>
+          <th>
+          ADDRESS
+          </th>
+        </tr>
+        <tr *ngFor="let user of paginatedUsers()" appHighlight appHighlight highlightColor="#6192E1">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.website }}</td>
+          <td>{{ user.address.city }} {{user.address.zipcode}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="button-box">
+      <div class="msg">
+        <ng-container *ngIf="users().length > 0; else loading">
+          <p>Data Loaded!</p>
+        </ng-container>
+        <ng-template #loading>
+          <p>Loading...</p>
+        </ng-template>
+      </div>
+      <div class="btn"> <button (click)="currentPage.set(currentPage() - 1)" [disabled]="currentPage() === 1">Prev</button>
+        <button (click)="currentPage.set(currentPage() + 1)"
+          [disabled]="currentPage() * itemsPerPage >= filteredUsers.length">Next</button>
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>
