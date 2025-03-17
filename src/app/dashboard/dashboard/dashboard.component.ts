@@ -21,8 +21,6 @@ export class DashboardComponent {
   itemsPerPage = 5;
   username: string ;
 
-
-
   constructor(private http: HttpClient,public authService: AuthServiceService, private router: Router) {
     if(sessionStorage.getItem('user')!=null ){
     history.pushState(null, '', location.href); 
@@ -31,7 +29,6 @@ export class DashboardComponent {
     };}
 
     this.username = this.authService.getUsername()?? 'Guest';
-    console.log("DashboardComponent: Fetching users...");
     this.fetchUsers();
   }
 
@@ -39,7 +36,6 @@ export class DashboardComponent {
     this.http.get<any[]>('https://jsonplaceholder.typicode.com/users')
     .subscribe({
       next: (data) => {
-        console.log("API Response:", data);
         this.users.set(data);
       },
       error: (err) => console.error("API Error:", err)

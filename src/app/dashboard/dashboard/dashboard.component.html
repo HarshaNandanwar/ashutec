@@ -4,8 +4,6 @@
       <h1>Welcome, {{ username | uppercase}}</h1> <button (click)="authService.logout()">Logout</button>
     </header>
   </div>
-
-
   <div>
     <div class="search-box">
       <input [(ngModel)]="searchQuery" placeholder="Search users..." />
@@ -14,19 +12,19 @@
       <table>
         <tr>
           <th>
-           NAME
+            NAME
           </th>
           <th>
-          EMAIL
+            EMAIL
           </th>
           <th>
-         CONTACT
+            CONTACT
           </th>
           <th>
-          WEBSITE
+            WEBSITE
           </th>
           <th>
-          ADDRESS
+            ADDRESS
           </th>
         </tr>
         <tr *ngFor="let user of paginatedUsers()" appHighlight appHighlight highlightColor="#6192E1">
@@ -47,14 +45,11 @@
           <p>Loading...</p>
         </ng-template>
       </div>
-      <div class="btn"> <button (click)="currentPage.set(currentPage() - 1)" [disabled]="currentPage() === 1">Prev</button>
+      <div class="btn"> <button (click)="currentPage.set(currentPage() - 1)"
+          [disabled]="currentPage() === 1">Prev</button>
         <button (click)="currentPage.set(currentPage() + 1)"
           [disabled]="currentPage() * itemsPerPage >= filteredUsers.length">Next</button>
       </div>
-
-
     </div>
   </div>
-
-
 </div>

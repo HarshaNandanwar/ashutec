@@ -17,16 +17,12 @@ export class LoginComponent {
 
   constructor(public authService: AuthServiceService, private router: Router) {
     if (this.authService.isLoggedIn()) {
-      console.log('Already logged in, skipping login navigation');
       this.router.navigate(['/dashboard']); 
     }
    }
 
   login() {
-  
-
     if (this.authService.login(this.username)) {
-      console.log('Login successful, navigating to Dashboard');
       this.router.navigate(['/dashboard']); 
     } else {
       console.log('Login failed');
