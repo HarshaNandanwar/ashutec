@@ -20,6 +20,7 @@ export class DashboardComponent {
   currentPage = signal<number>(1);
   itemsPerPage = 5;
   username: string ;
+  selectedUser: any = null; 
 
   constructor(private http: HttpClient,public authService: AuthServiceService, private router: Router) {
     if(sessionStorage.getItem('user')!=null ){
@@ -53,4 +54,12 @@ export class DashboardComponent {
     const end = start + this.itemsPerPage;
     return this.filteredUsers.slice(start, end);
   });
+
+  selectUser(user: any) {
+    this.selectedUser = { ...user }; 
+  }
+
+  closeForm() {
+    this.selectedUser = null; 
+  }
 }
